@@ -1,7 +1,8 @@
 ---
 title: "Data550 Final Dataset"
 author: "Mia Yang"
-output: html_document
+
+  
 ---
 
 # Final Project: Modeling Medical Insurance Charges Using Demographic and Lifestyle Factors
@@ -99,35 +100,9 @@ saveRDS(
 
 Table 1 summarizes the baseline characteristics of the study population (N = 1,338) stratified by insurance charges categorized as high versus low (above vs. below the median). Individuals in the high-charge group tended to be older, with a median age of 51 years compared to 31 years in the low-charge group (p < 0.001). BMI was also higher among those with high charges (median 31.1 vs. 29.9, p = 0.001). The distribution of sex was similar across groups (approximately half male and half female, p > 0.9). The number of children showed some differences, with the high-charge group slightly more likely to have three or more children (p = 0.016). Regional distribution did not differ significantly (p = 0.2). Notably, smoking status showed the strongest association with charges: 41% of the high-charge group were smokers, compared to none in the low-charge group (p < 0.001). These findings suggest that age, BMI, number of children, and smoking status are important predictors of higher insurance costs.
 
-## 2.2 Table 2: Summary of Insurance Charges by Region
 
 
-```{r}
-library(dplyr)
-library(knitr)
 
-charges_by_region <- final_data %>%
-  group_by(region) %>%
-  summarise(
-    mean_charges   = mean(charges,  na.rm = TRUE),
-    median_charges = median(charges, na.rm = TRUE),
-    sd_charges     = sd(charges,    na.rm = TRUE),
-    min_charges    = min(charges,   na.rm = TRUE),
-    max_charges    = max(charges,   na.rm = TRUE),
-    n = n()
-  ) %>%
-  arrange(desc(mean_charges)) %>%
-  mutate(across(where(is.numeric), round, 2))
-
-
-kable(charges_by_region, align = "c", digits = 2)
-
-
-```
-
-## Table 2 Analysis:
-
-Average insurance charges vary notably by region, with the southeast having the highest mean costs and the northwest and southwest showing lower averages. The wide variation within regions suggests differences in population health, lifestyle, and access to care, emphasizing the need to consider regional factors when evaluating medical expenses.
 
 
 # 3. Visualization 

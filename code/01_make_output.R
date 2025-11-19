@@ -40,55 +40,6 @@ saveRDS(
   table_one_1,
   file = here::here("output/table_one.rds")
 )
-# table 2
-
-library(ggplot2)
-library(dplyr)
-library(gridExtra)
-
-
-charges_by_region <- final_data %>%
-  group_by(region) %>%
-  summarise(
-    mean_charges = mean(charges, na.rm = TRUE),
-    median_charges = median(charges, na.rm = TRUE),
-    sd_charges = sd(charges, na.rm = TRUE),
-    min_charges = min(charges, na.rm = TRUE),
-    max_charges = max(charges, na.rm = TRUE),
-    n = n()
-  ) %>%
-  arrange(desc(mean_charges))
-
-
-charges_by_region <- charges_by_region %>%
-  mutate(across(where(is.numeric), round, 2))
-
-
-table_plot <- tableGrob(
-  charges_by_region,
-  rows = NULL,
-  theme = ttheme_default(
-    core = list(fg_params = list(cex = 0.8)),
-    colhead = list(fg_params = list(cex = 0.9, fontface = "bold", col = "white"),
-                   bg_params = list(fill = "#4B9CD3", col = NA))
-  )
-)
-
-
-
-
-
-table_final <- gridExtra::grid.arrange(title, table_plot, nrow = 2, heights = c(0.2, 1))
-
-
-
-ggsave(
-  filename = here::here("output", "charges_by_region.png"),
-  plot = table_final,
-  width = 8,
-  height = 4,
-  dpi = 300
-)
 
 # visualization 1
 library(ggplot2)
