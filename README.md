@@ -29,12 +29,12 @@ The final report presents **one table** and **two figures** summarizing key insi
 ## Synchronize your package repository
 
 - Clone the repository
-- Install all required R packages with: *make install* in Git bash -If you add or update packages, run: *renv::snapshot()*
+- Install all required R packages with: `make install` in Git bash -If you add or update packages, run: `renv::snapshot()`
 
 ## How to Generate the Final Report
 
-- After synchronize the packages, now run *make output/tables* in Git bash to get the tables and graphs.
-- Run *make output/reports* to get the pdf/html final report
+- After synchronize the packages, now run `make output/tables` in Git bash to get the tables and graphs.
+- Run `make output/reports` to get the pdf/html final report
 
 ## Which pieces of code create the tables and figures?
 
