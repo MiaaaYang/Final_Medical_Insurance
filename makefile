@@ -1,21 +1,17 @@
 
+install:
+	Rscript -e "renv::restore()"
 
-# --- 1. Generate all output files (tables + figures) ---
-output_files:
+
+output/tables: code/01_make_output.R
 	Rscript code/01_make_output.R
 
-# --- 2. Create HTML report ---
-output/Data550_Final_Project.html: code/Data550_Final_Project.Rmd code/02_render_report.R output_files
-	Rscript -e "rmarkdown::render('code/Data550_Final_Project.Rmd', output_format = 'html_document', output_file = '../output/Data550_Final_Project.html')"
 
-# --- 3. Create PDF report ---
-output/Data550_Final_Project.pdf: code/Data550_Final_Project.Rmd code/02_render_report.R output_files
-	Rscript -e "rmarkdown::render('code/Data550_Final_Project.Rmd', output_format = 'pdf_document', output_file = '../output/Data550_Final_Project.pdf')"
 
-# --- 4. Default rule: build both HTML + PDF reports ---
-all: output/Data550_Final_Project.html output/Data550_Final_Project.pdf
+output/reports: code/02_render_report.R output/tables
+	Rscript code/02_render_report.R
 
-# --- 5. Clean up generated files ---
+
 .PHONY: clean
 clean:
-	rm -f output/*.png output/*.html output/*.pdf output/*.rds
+	rm -f output/*.html output/*.pdf output/*.png output/*.rds output/tables output/reports

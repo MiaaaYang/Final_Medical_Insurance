@@ -1,8 +1,0 @@
-"0","library(knitr)"
-"0",""
-"0","# Set global chunk options"
-"0","opts_chunk$set("
-"0","  echo = FALSE,      "
-"0","  warning = FALSE,   "
-"0","  message = FALSE    "
-"0",")"
