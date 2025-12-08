@@ -47,7 +47,7 @@ docker_report:
 	mkdir -p report
 	docker run --rm \
 		-v "$(PWD)/report:/home/rstudio/project/report" \
-		miaaayang/data550final:latest
+		miayang28/data550final:latest
 
 # --------------------------------------
 # Clean output folder

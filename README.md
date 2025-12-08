@@ -26,18 +26,6 @@ The final report presents **one table** and **two figures** summarizing key insi
 
 ---
 
-## Building Docker Image
-
-To build the Docker image locally:
-
-- run `docker build -t miaaayang/data550final:latest .` in bash
-
-## Generate the Report Using Docker from makefile
-
-- run `make docker_report` in bash
-- The report will be shown in `report/Data550_Final_Project.html`
-
-
 
 ## Synchronize your package repository
 
@@ -48,6 +36,17 @@ To build the Docker image locally:
 ## How to Generate the Final Report
 
 - After synchronize the packages, now run `make` in Git bash to get the final report.
+
+## Building Docker Image
+
+To build the Docker image locally:
+
+- run `docker build -t miayang28/data550final:latest .` in bash
+
+## Generate the Report Using Docker from makefile
+
+- run `make docker_report` in bash
+- The report will be shown in `report/Data550_Final_Project.html`
 
 
 ## Which pieces of code create the tables and figures?
