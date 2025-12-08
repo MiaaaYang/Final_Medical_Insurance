@@ -64,6 +64,10 @@ ggsave(
 
 boxplot_reg
 
+saveRDS(
+  boxplot_reg,
+  file = here::here("output/boxplot_reg.rds")
+)
 
 #visuliazation 2:
 scatter <- ggplot(final_data, aes(x = bmi, y = charges, color = smoker)) +
@@ -88,3 +92,7 @@ ggsave(
 
 scatter
 
+saveRDS(
+  scatter,
+  file = here::here("output/scatter.rds")
+)
