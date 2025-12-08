@@ -37,6 +37,17 @@ $(OUTPUT_FILES): code/01_make_output.R raw_data/insurance.csv
 # --------------------------------------
 Data550_Final_Project.html: Data550_Final_Project.Rmd $(OUTPUT_FILES)
 	Rscript -e "rmarkdown::render('Data550_Final_Project.Rmd', output_format = 'html_document')"
+	
+# --------------------------------------
+# Docker rule 
+# --------------------------------------
+
+.PHONY: docker_report
+docker_report:
+	mkdir -p report
+	docker run --rm \
+		-v "$(PWD)/report:/home/rstudio/project/report" \
+		miaaayang/data550final:latest
 
 # --------------------------------------
 # Clean output folder

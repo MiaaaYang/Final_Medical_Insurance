@@ -27,7 +27,7 @@ library(ggplot2)
 ```
 
 
-# Check the location of data
+*Check the location of data*
 ```{r, location-check,echo=TRUE}
 here::here ("Data550_Final_Project.Rmd")
 ```
@@ -70,9 +70,9 @@ Characteristics of the `r nrow(final_data)`  data points from the insurance data
 
 
 ```{r table1-img, echo=FALSE, out.width="90%"}
+
 table1<- readRDS(here::here("output", "table_one.rds"))
 table1
-
 ```
 
 ## Table 1 Analysis:
@@ -91,7 +91,6 @@ Table 1 summarizes the baseline characteristics of the study population (N = 1,3
 ```{r boxplot1, echo=FALSE, out.width="90%"}
 box <- readRDS(here::here("output", "boxplot_reg.rds"))
 box
-
 ```
 
 
@@ -104,10 +103,9 @@ The boxplot was created to examine whether geographic region is associated with 
 ## 3.2 Scatter Plot: BMI vs. Charges, Colored by Smoking Status
 
 ```{r scatter, echo=FALSE, out.width="90%"}
+
 scatter <- readRDS(here::here("output", "scatter.rds"))
 scatter
-
-
 ```
 
 

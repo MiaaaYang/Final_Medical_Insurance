@@ -26,15 +26,29 @@ The final report presents **one table** and **two figures** summarizing key insi
 
 ---
 
+## Building Docker Image
+
+To build the Docker image locally:
+
+- run `docker build -t miaaayang/data550final:latest .` in bash
+
+## Generate the Report Using Docker from makefile
+
+- run `make docker_report` in bash
+- The report will be shown in `report/Data550_Final_Project.html`
+
+
+
 ## Synchronize your package repository
 
 - Clone the repository
+- run `make clean` first 
 - Install all required R packages with: `make install` in Git bash -If you add or update packages, run: `renv::snapshot()`
 
 ## How to Generate the Final Report
 
-- After synchronize the packages, now run `make output/tables` in Git bash to get the tables and graphs.
-- Run `make output/reports` to get the pdf/html final report
+- After synchronize the packages, now run `make` in Git bash to get the final report.
+
 
 ## Which pieces of code create the tables and figures?
 
@@ -49,7 +63,7 @@ Creates Figure 2: Scatter plot showing the relationship between BMI and insuranc
 
 2. `code/Data550_Final_Project.Rmd`
 
-Creates the Final pdf/HTML report
+Creates the Final HTML report
 
 3. `output` 
 

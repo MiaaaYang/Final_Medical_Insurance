@@ -32,10 +32,7 @@ table_one_1 <- final_data_c %>%
 
 table_one_1
 
-gtsave(
-  as_gt(table_one_1),
-  filename = here::here("output/table_one.png")
-)
+
 saveRDS(
   table_one_1,
   file = here::here("output/table_one.rds")
